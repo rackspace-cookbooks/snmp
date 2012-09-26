@@ -1,0 +1,3 @@
+cookbook "snmp" do
+  runtimes []
+end
