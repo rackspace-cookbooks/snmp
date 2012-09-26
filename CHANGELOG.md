@@ -2,6 +2,10 @@ v 0.3.1
 
 Fix Gemfile for Travis.
 
+Foodcritic warnings resolved
+
+* FC007: Ensure recipe dependencies are reflected in cookbook metadata
+
 v 0.3.0
 
 Merge pull request #1 from gustavowt/master
