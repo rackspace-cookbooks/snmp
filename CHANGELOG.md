@@ -1,3 +1,7 @@
+v 0.3.1
+
+Fix Gemfile for Travis.
+
 v 0.3.0
 
 Merge pull request #1 from gustavowt/master
