@@ -24,6 +24,9 @@ case node['platform_family']
   when "debian"
     set['snmp']['packages'] = ["snmp", "snmpd"]
     set['snmp']['cookbook_files'] = ["/etc/default/snmpd"]
+  when "suse"
+    set['snmp']['packages'] = ["net-snmp"]
+    set['snmp']['cookbook_files'] = Array.new
   else
     set['snmp']['packages'] = ["net-snmp", "net-snmp-utils"]
     set['snmp']['cookbook_files'] = Array.new

@@ -5,11 +5,11 @@ description      "Installs/Configures snmp on redhat, centos, ubuntu, debian"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name             "snmp"
 depends          "perl"
-version          "0.3.1"
+version          "0.3.2"
 
 recipe "snmp", "Installs and configures snmpd"
 
-%w{ ubuntu debian redhat centos scientific fedora }.each do |os|
+%w{ ubuntu debian redhat centos scientific fedora suse }.each do |os|
   supports os
 end
 
