@@ -39,5 +39,5 @@ template "/etc/snmp/snmpd.conf" do
   mode 0644
   owner "root"
   group "root"
-  notifies :restart, resources(:service => node['snmp']['service'])
+  notifies :restart, "service[#{node['snmp']['service']}]"
 end
