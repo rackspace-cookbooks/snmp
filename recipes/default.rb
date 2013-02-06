@@ -18,7 +18,12 @@
 #
 
 service node['snmp']['service'] do
+  case node[:platform]
+    when "ubuntu"
+      provider Chef::Provider::Service::Upstart
+  end
   action :nothing
+  supports :status => true, :restart => true
 end
 
 node['snmp']['packages'].each do |snmppkg|
@@ -50,6 +55,13 @@ service node['snmp']['service'] do
 end
 
 template "/etc/snmp/snmpd.conf" do
+  mode 0644
+  owner "root"
+  group "root"
+  notifies :restart, "service[#{node['snmp']['service']}]"
+end
+
+template "/etc/snmp/snmptrapd.conf" do
   mode 0644
   owner "root"
   group "root"
