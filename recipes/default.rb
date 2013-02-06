@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+service node['snmp']['service'] do
+  action :nothing
+end
+
 node['snmp']['packages'].each do |snmppkg|
   package snmppkg
 end
