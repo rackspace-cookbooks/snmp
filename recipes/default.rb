@@ -17,15 +17,6 @@
 # limitations under the License.
 #
 
-service node['snmp']['service'] do
-  case node[:platform]
-    when "ubuntu"
-      provider Chef::Provider::Service::Upstart
-  end
-  action :nothing
-  supports :status => true, :restart => true
-end
-
 node['snmp']['packages'].each do |snmppkg|
   package snmppkg
 end

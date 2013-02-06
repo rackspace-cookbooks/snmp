@@ -17,4 +17,4 @@
 #
 traphandle <%= node['snmp']['snmptrapd']['traphandle'] %>
 disableAuthorization <%= node['snmp']['snmptrapd']['disableAuthorization'] %>
-donotlogtraps <%= ['snmp']['snmptrapd']['donotlogtraps'] %>
+donotlogtraps <%= node['snmp']['snmptrapd']['donotlogtraps'] %>
