@@ -23,6 +23,9 @@ before uploading to the Chef server.
 * snmp::default
   - Installs and configures SNMP
 
+* snmp::snmptrapd
+  - Configures snmptrapd
+
 * snmp::extendbind
   - Example recipe to deploy a Perl based extend script to collect stats
     from a BIND 9 server.

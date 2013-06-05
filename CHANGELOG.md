@@ -1,3 +1,12 @@
+## snmp v1.0.0
+
+  Add snmptrapd recipe.
+  Template debian files.
+  Add test-kitchen skeleton.
+  Typos in platform_family case switches.
+  Check for existence of dmi OHAI attribute, before checking in a condition.
+  Correct minitest-spec file for Chef 11.x  
+
 ## snmp v0.4.0
 
   Add necessary setup for the HP System Management Homepage to be able to poll via @tas50

@@ -21,20 +21,9 @@ node['snmp']['packages'].each do |snmppkg|
   package snmppkg
 end
 
-if not node['snmp']['cookbook_files'].empty?
-  node['snmp']['cookbook_files'].each do |snmpfile|
-    cookbook_file snmpfile do
-      mode 0644
-      owner "root"
-      group "root"
-    end
-  end
-end
-
 case node['platform_family']
-  when "debian", "ubuntu"
+  when "debian"
     template "/etc/default/snmpd" do
-      source "snmpd.erb"
       mode 0644
       owner "root"
       group "root"
@@ -46,13 +35,6 @@ service node['snmp']['service'] do
 end
 
 template "/etc/snmp/snmpd.conf" do
-  mode 0644
-  owner "root"
-  group "root"
-  notifies :restart, "service[#{node['snmp']['service']}]"
-end
-
-template "/etc/snmp/snmptrapd.conf" do
   mode 0644
   owner "root"
   group "root"

@@ -20,16 +20,12 @@
 case node['platform_family']
   when "rhel"
     set['snmp']['packages'] = ["net-snmp", "net-snmp-utils"]
-    set['snmp']['cookbook_files'] = Array.new
   when "debian"
     set['snmp']['packages'] = ["snmp", "snmpd"]
-    set['snmp']['cookbook_files'] = Array.new
   when "suse"
     set['snmp']['packages'] = ["net-snmp"]
-    set['snmp']['cookbook_files'] = Array.new
   else
     set['snmp']['packages'] = ["net-snmp", "net-snmp-utils"]
-    set['snmp']['cookbook_files'] = Array.new
 end
 
 # Same on supported platforms:
@@ -45,6 +41,7 @@ default['snmp']['trapcommunity'] = "public"
 default['snmp']['trapsinks'] = Array.new
 default['snmp']['is_dnsserver'] = false
 
+# Debian default file options
 default['snmp']['snmpd']['mibdirs'] = "/usr/share/snmp/mibs"
 default['snmp']['snmpd']['snmpd_run'] = "yes"
 default['snmp']['snmpd']['snmpd_opts'] = "-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid"
