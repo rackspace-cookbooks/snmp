@@ -21,7 +21,7 @@ case node['platform_family']
   when "rhel"
     set['snmp']['packages'] = ["net-snmp", "net-snmp-utils"]
     set['snmp']['cookbook_files'] = Array.new
-  when "debian", "ubuntu"
+  when "debian"
     set['snmp']['packages'] = ["snmp", "snmpd"]
     set['snmp']['cookbook_files'] = Array.new
   when "suse"
