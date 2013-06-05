@@ -1,3 +1,5 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'test-kitchen'
+gem 'berkshelf'
+gem 'test-kitchen', git: 'git://github.com/opscode/test-kitchen.git', branch: 'master'
+gem 'kitchen-vagrant', :group => :integration
