@@ -51,3 +51,10 @@ template "/etc/snmp/snmpd.conf" do
   group "root"
   notifies :restart, "service[#{node['snmp']['service']}]"
 end
+
+template "/etc/snmp/snmptrapd.conf" do
+  mode 0644
+  owner "root"
+  group "root"
+  notifies :restart, "service[#{node['snmp']['service']}]"
+end
