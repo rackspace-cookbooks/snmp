@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: snmp
-# Recipe:: snmptrapd 
+# Attributes:: snmptrapd 
 #
 # Copyright 2013, Eric G. Wolfe
 #
@@ -17,17 +17,13 @@
 # limitations under the License.
 #
 
-node.set['snmp']['snmpd']['trapd_run'] = 'yes'
-
-include_recipe "snmp"
-
-service node['snmp']['snmptrapd']['service'] do
-  action [ :enable, :start ]
+# snmptrapd options
+case node['platform_family']
+when 'rhel'
+  default['snmp']['snmptrapd']['service'] = "snmptrapd"
+else
+  default['snmp']['snmptrapd']['service'] = node['snmp']['service']
 end
-
-template "/etc/snmp/snmptrapd.conf" do
-  mode 0644
-  owner "root"
-  group "root"
-  notifies :restart, "service[#{node['snmp']['snmptrapd']['service']}]"
-end
+default['snmp']['snmptrapd']['traphandle'] = "default /usr/sbin/snmptthandler"
+default['snmp']['snmptrapd']['disableAuthorization'] = "yes"
+default['snmp']['snmptrapd']['donotlogtraps'] = "yes"

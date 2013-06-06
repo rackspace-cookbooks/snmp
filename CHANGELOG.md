@@ -1,6 +1,6 @@
 ## snmp v1.0.0
-
-  Add snmptrapd recipe.
+  
+  Add snmptrapd recipe, and add RHEL support.
   Template debian files.
   Add test-kitchen skeleton.
   Typos in platform_family case switches.
