@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-node.set['snmp']['is_dnsserver'] = true
+node.default['snmp']['is_dnsserver'] = true
 
 if node['snmp']['is_dnsserver']
   include_recipe "perl"

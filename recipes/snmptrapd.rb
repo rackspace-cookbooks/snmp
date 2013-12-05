@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-node.set['snmp']['snmpd']['trapd_run'] = 'yes'
+node.default['snmp']['snmpd']['trapd_run'] = 'yes'
 
 include_recipe "snmp"
 
