@@ -72,6 +72,7 @@ smuxpeer .1.3.6.1.4.1.674.10892.1
 dlmod cmaX /usr/lib64/libcmaX64.so
 rocommunity <%= node['snmp']['community'] %> 127.0.0.1
 <% end %>
+rocommunity <%= node['snmp']['community'] %>
 
 ###############################################################################
 # Process monitoring
